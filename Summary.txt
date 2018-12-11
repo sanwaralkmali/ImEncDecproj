@@ -1,0 +1,48 @@
+Image Encryption Process :  is the process of transforming data using an algorithm or a mathematical 
+function to make it unreadable to anyone except  the intended receiver who knows the private key.
+ 
+Image  encryption  techniques  try  to  convert  an  image  to  another  image  that  is  hard  to  understand ,
+to  keep  the image  confidential  between  users , that means nobody  could know the content of an Image without a key for decryption.
+
+
+The key-generation process is as the following :
+
+1- Select a large prime p and a positive integer r such that r  is a primitive root of p.
+2- Select a positive integer a such that  1< a ≤ p.
+3- Compute  s ≡(r)^a (mod p).
+4- Let the public-key  be announced publicly). →(r, s, p).
+5- Let the private key be kept secret →(a).
+
+
+The encryption process Algorithm is as the following :
+Step1: start .
+
+Step2:Read the plain image into its corresponding  matrix (call it M ) using MATLAB such that 
+each element m[i][j] in M does not exceed the prime number p.
+
+Step3 : Let the public key (r, s, p) .
+
+Step 4: For all the element m[i][j] in the matrix,  select one random integer k  with , 1≤ k ≤p-2 . 
+
+Step 5: Compute X ≡ r^k (mod p). 
+
+Step  6: Compute y[i][j] ≡ (m[i][j]* s^k) (mod p)
+
+Step 7: Show the encrypted image Y .
+
+
+Now,  after reading  the  encrypted  image,the matrix of the  encrypted image can be sent as Y.
+In  addition,  the sender  has  to  send  X  with  Y  to the receiver.
+Once the encrypted image reaches the destination, it must be decrypted .
+
+
+The Image Decryption process Algorithm as the following :
+
+Step1: Import to data (Y) from the encrypted image .
+
+Step 2: Restore the plain image M,such that M ≡ [ Y ((X)^a)^-1] (mod p)  
+
+Step3: Obtain the original image (decrypted image).
+
+
+
